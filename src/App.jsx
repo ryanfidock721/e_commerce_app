@@ -7,6 +7,8 @@ import { ItemsGrid } from './components/items_grid'
 function App() {
   const [products, setProducts] = useState([])
 
+
+
   return (
     <>
     
