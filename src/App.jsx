@@ -6,11 +6,11 @@ import { Nav } from './components/nav'
 import { ItemsGrid } from './components/items_grid'
 import { Admin_Page } from './components/admin'
 import { About } from './components/about'
+import { Pagination } from './components/pagination'
 
 function App() {
   const [products, setProducts] = useState([])
-
-
+  const [currentPage, setCurrentPage] = useState(1);
 
   return (
     <>
@@ -25,6 +25,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/items_grid" element={<ItemsGrid />} />
         </Routes>
+
+        <Pagination/>
 
       </Router>
     </>
