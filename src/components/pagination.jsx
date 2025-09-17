@@ -1,13 +1,19 @@
-import { useState } from 'react'
+import { ChevronRight } from 'lucide-react'
+import { ChevronLeft } from 'lucide-react'
+import { RotateCcw } from 'lucide-react'
 
-export function Pagination() {
-    const [currentPage, setCurrentPage] = useState(1);
-
-    return (
-        <div className="flex justify-center mt-8 bg-red-200 p-4">
-            <button>Last Page</button>
-            <button>Page 1</button>
-            <button>Next Page</button>
-        </div>
-    );
+export function Pagination({ setCurrentPage }) {
+  return (
+    <div className="flex justify-center p-4 gap-4">
+      <button onClick={() => setCurrentPage(p => Math.max(1, p - 1))} className='p-2 bg-lime-500 rounded-md text-white font-bold hover:bg-lime-600 hover:cursor-pointer'>
+        <ChevronLeft />
+      </button>
+      <button onClick={() => setCurrentPage(1)} className='p-2 bg-lime-500 rounded-md text-white font-bold hover:bg-lime-600 hover:cursor-pointer'>
+        <RotateCcw />
+      </button>
+      <button onClick={() => setCurrentPage(p => p + 1)} className='p-2 bg-lime-500 rounded-md text-white font-bold hover:bg-lime-600 hover:cursor-pointer'>
+        <ChevronRight />
+      </button>
+    </div>
+  )
 }
