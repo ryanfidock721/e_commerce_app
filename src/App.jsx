@@ -21,11 +21,15 @@ function App() {
         <Route path="/" element={<ItemsGrid currentPage={currentPage} />} />
         <Route path="/admin" element={<Admin_Page />} />
         <Route path="/about" element={<About />} />
-        <Route path="/items_grid" element={<ItemsGrid currentPage={currentPage} />} />
+        <Route path="/items_grid" element={
+          <>
+            <ItemsGrid currentPage={currentPage} />
+            <Pagination setCurrentPage={setCurrentPage} />
+          </>
+          } />
         <Route path="/pagination" element={<Pagination setCurrentPage={setCurrentPage} />} />
       </Routes>
 
-      <Pagination setCurrentPage={setCurrentPage} />
     </Router>
   )
 }

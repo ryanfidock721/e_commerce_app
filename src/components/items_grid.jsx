@@ -56,7 +56,7 @@ export function ItemsGrid({ currentPage }) {
       <Modal open={!!selected} onClose={() => setSelected(null)}>
         {selected && (
           <>
-            <img src={selected.image_url} alt={selected.name} className='object-cover mb-4 rounded-sm' />
+            <img src={selected.image_url} alt={selected.name} className='mx-auto h-full max-h-100 object-cover mb-4 rounded-sm' />
             <div className='p-2 flex flex-row gap-2 place-content-around'>
               <p className='text-black'>Rated {selected.rating}/5!</p>
             </div>
