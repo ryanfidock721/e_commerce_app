@@ -9,8 +9,9 @@ import { Admin_Page } from './components/admin'
 import { About } from './components/about'
 import { Pagination } from './components/pagination'
 
+
 function App() {
-  const [currentPage, setCurrentPage] = useState(1)     // <-- add page state
+  const [currentPage, setCurrentPage] = useState(1)
 
   return (
     <Router>
@@ -22,10 +23,15 @@ function App() {
         <Route path="/admin" element={<Admin_Page />} />
         <Route path="/about" element={<About />} />
         <Route path="/items_grid" element={
-          <>
-            <ItemsGrid currentPage={currentPage} />
+          <div>
+
+            <div>
+              <ItemsGrid currentPage={currentPage} />
+            </div>
+
             <Pagination setCurrentPage={setCurrentPage} />
-          </>
+
+          </div>
           } />
         <Route path="/pagination" element={<Pagination setCurrentPage={setCurrentPage} />} />
       </Routes>
