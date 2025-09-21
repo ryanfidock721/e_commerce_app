@@ -8,16 +8,19 @@ import { ItemsGrid } from './components/items_grid'
 import { Admin_Page } from './components/admin'
 import { About } from './components/about'
 import { Pagination } from './components/pagination'
+import { Sidebar } from './components/sidebar'
 
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
     <Router>
       <Header />
-      <Nav />
-
+      <Nav setIsSidebarOpen={setIsSidebarOpen} />
+      <Sidebar isSidebarOpen={isSidebarOpen} />
+      
       <Routes>
         <Route path="/" element={<ItemsGrid currentPage={currentPage} />} />
         <Route path="/admin" element={<Admin_Page />} />
