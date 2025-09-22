@@ -19,25 +19,24 @@ function App() {
     <Router>
       <Header />
       <Nav setIsSidebarOpen={setIsSidebarOpen} />
-      <Sidebar isSidebarOpen={isSidebarOpen} />
-      
-      <Routes>
-        <Route path="/" element={<ItemsGrid currentPage={currentPage} />} />
-        <Route path="/admin" element={<Admin_Page />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/items_grid" element={
-          <div>
+      <div className='flex flex-row'>
+        <Routes>
+          <Route path="/" element={<ItemsGrid currentPage={currentPage} />} />
+          <Route path="/admin" element={<Admin_Page />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/items_grid" element={
 
             <div>
               <ItemsGrid currentPage={currentPage} />
+              <Pagination setCurrentPage={setCurrentPage} />
             </div>
 
-            <Pagination setCurrentPage={setCurrentPage} />
-
-          </div>
-          } />
-        <Route path="/pagination" element={<Pagination setCurrentPage={setCurrentPage} />} />
-      </Routes>
+            } />
+          <Route path="/pagination" element={<Pagination setCurrentPage={setCurrentPage} />} />
+        </Routes>
+        <Sidebar isSidebarOpen={isSidebarOpen} />
+        </div>
+      
 
     </Router>
   )

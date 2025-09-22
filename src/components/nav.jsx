@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ShoppingCart } from 'lucide-react'
 
-export function Nav(setIsSidebarOpen) {
+export function Nav({setIsSidebarOpen}) {
     return (
         <nav className="bg-gray-800 text-white p-4 flex justify-center">
             <ul className="flex space-x-4 items-center">
