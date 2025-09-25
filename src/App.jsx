@@ -9,6 +9,7 @@ import { Admin_Page } from './components/admin'
 import { About } from './components/about'
 import { Pagination } from './components/pagination'
 import { Sidebar } from './components/sidebar'
+import { Footer } from './components/footer'
 
 
 function App() {
@@ -30,23 +31,27 @@ function App() {
 
       <div className='flex flex-row'>
         <Routes>
-          <Route path="/" element={<ItemsGrid currentPage={currentPage} setLoading={setLoading} setCart={setCart} />} />
+          <Route path="/" element={
+            <ItemsGrid currentPage={currentPage} setLoading={setLoading} setCart={setCart} />}/>
+
           <Route path="/admin" element={<Admin_Page />} />
           <Route path="/about" element={<About />} />
           <Route path="/items_grid" element={
 
-            <div>
-              <ItemsGrid currentPage={currentPage} />
-              <Pagination setCurrentPage={setCurrentPage} />
-            </div>
+              <div>
+                <ItemsGrid currentPage={currentPage} setLoading={setLoading} setCart={setCart} />
+                <Pagination setCurrentPage={setCurrentPage} />
+              </div>
 
-            } />
+            }
+          />
           <Route path="/pagination" element={<Pagination setCurrentPage={setCurrentPage} />} />
         </Routes>
-        <Sidebar isSidebarOpen={isSidebarOpen} cart={cart} />
+
+        <Sidebar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} cart={cart} setCart={setCart} />
         </div>
       
-
+      <Footer />
     </Router>
   )
 }

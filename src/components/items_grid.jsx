@@ -33,7 +33,7 @@ export function ItemsGrid({ currentPage, setLoading, setCart }) {
   return (
     <>
       <div className='flex flex-col items-center'>
-        <div className='grid grid-cols-4 gap-4 m-25 mt-4 p-10 w-full max-w-7xl'>
+        <div className='grid grid-cols-4 gap-4 m-25 mb-0 mt-4 p-10 w-full max-w-7xl'>
           {currentPosts.map(product => (
             <div key={product.id} className='border p-4 rounded w-full max-w-sm bg-white shadow transition-transform duration-200 hover:scale-105 cursor-pointer'>
               <img src={product.image_url} alt={product.name} onClick={() => setSelected(product)} className='w-full h-48 object-cover mb-4 rounded-sm' />
@@ -62,7 +62,7 @@ export function ItemsGrid({ currentPage, setLoading, setCart }) {
             <p className='text-black p-2 ml-11 mr-11'>{selected.description}</p>
 
             <div className='justify-center items-center flex p-2'>
-              <button className='hover:cursor-pointer active:bg-lime-800 flex justify-center items-center w-full max-w-sm p-1 rounded-md bg-lime-500'>
+              <button onClick={() => setCart(prevCart => [...prevCart, selected])} className='hover:cursor-pointer active:bg-lime-800 flex justify-center items-center w-full max-w-sm p-1 rounded-md bg-lime-500'>
                 <ShoppingBasket color='black' strokeWidth={1.25} />
               </button>
             </div>
