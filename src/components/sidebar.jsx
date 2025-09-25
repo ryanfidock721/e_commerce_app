@@ -1,7 +1,9 @@
 import { ShoppingBasket } from 'lucide-react'
 
-export function Sidebar({ isSidebarOpen }) {
+export function Sidebar({ isSidebarOpen, cart }) {
   if (!isSidebarOpen) return null;
+
+  console.log('cart currently:', cart);
 
   return (
     <div className="relative right-0 top-0 h-full w-64 bg-white border-l shadow-sm">
@@ -10,15 +12,16 @@ export function Sidebar({ isSidebarOpen }) {
 
         <div className='border-b border-zinc-400'>
 
-          <div className='flex flex-row'>
-            <h3 className='text-black p-1'>Item 1 x 4:</h3>
-              <p className='text-black p-1'>$10</p>
-          </div>
+          {cart.map(product => (
+            <div key={product.id} className="p-2 relative right-0 top-0 h-full w-64 bg-white shadow-sm">
 
-          <div className='flex flex-row'>
-            <h3 className='text-black p-1'>Item 2 x 4:</h3>
-              <p className='text-black p-1'>$34</p>
-          </div>
+              <div className='flex flex-row place-content-between'>
+                <h3 className='text-black p-1'>{product.name}</h3>
+                <p className='text-black p-1'>${product.price}</p>
+              </div>
+              
+            </div>
+          ))}
 
         </div>
 
@@ -32,6 +35,7 @@ export function Sidebar({ isSidebarOpen }) {
         </button>
 
       </div>
+
     </div>
   );
 }
