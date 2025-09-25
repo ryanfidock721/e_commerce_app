@@ -27,7 +27,7 @@ export function Sidebar({ isSidebarOpen, setIsSidebarOpen, cart, setCart }) {
           {cart.map((product, i) => (
             <div key={product.id} className="p-2 relative right-0 top-0 h-full w-84 bg-white">
 
-              <div className='hover:bg-gray-200 flex flex-row place-content-between p-2 rounded-md shadow-md border-black'>
+              <div className='hover:bg-gray-400 flex flex-row place-content-between p-2 rounded-md shadow-md border-black bg-gray-100'>
                 <div className='flex flex-row p-2 items-center'>
                   <img className='w-8 h-8 rounded-md mr-3' src={product.image_url} alt={product.name}></img>
                   <h3 className='text-black p-1'>{product.name}</h3>
