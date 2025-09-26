@@ -1,6 +1,8 @@
 import { X } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 export function Sidebar({ isSidebarOpen, setIsSidebarOpen, cart, setCart }) {
+  const navigate = useNavigate();
   if (!isSidebarOpen) return null;
 
   let totalPrice = 0;
@@ -34,7 +36,8 @@ export function Sidebar({ isSidebarOpen, setIsSidebarOpen, cart, setCart }) {
                 </div>
                 <div className='flex flex-row p-2 items-center'>
                   <p className='text-black p-1'>${product.price}</p>
-                  <button onClick={() => setCart(prev => prev.toSpliced(i, 1))}>
+                  <button
+                    onClick={() => setCart(prev => prev.toSpliced(i, 1))}>
                     <X className='cursor-pointer text-red-400 h-auto w-5'/>
                   </button>
                 </div>
@@ -51,7 +54,12 @@ export function Sidebar({ isSidebarOpen, setIsSidebarOpen, cart, setCart }) {
         </div>
         
         {/* Checkout Button */}
-        <button className='font-bold hover:cursor-pointer active:bg-lime-800 flex justify-center items-center w-full max-w-sm p-1 rounded-md bg-lime-500'>
+        <button 
+          onClick={() => {
+              setIsSidebarOpen(false);
+              navigate('/checkout');
+            }}
+          className='font-bold hover:cursor-pointer active:bg-lime-800 flex justify-center items-center w-full max-w-sm p-1 rounded-md bg-lime-500'>
           CHECKOUT
         </button>
 

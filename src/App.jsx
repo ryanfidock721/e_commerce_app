@@ -10,6 +10,7 @@ import { About } from './components/about'
 import { Pagination } from './components/pagination'
 import { Sidebar } from './components/sidebar'
 import { Footer } from './components/footer'
+import { Checkout } from './components/checkout'
 
 
 function App() {
@@ -29,13 +30,14 @@ function App() {
         </div>
       )}
 
-      <div className='flex flex-row'>
+      <div className=''>
         <Routes>
           <Route path="/" element={
             <ItemsGrid currentPage={currentPage} setLoading={setLoading} setCart={setCart} />}/>
 
           <Route path="/admin" element={<Admin_Page />} />
           <Route path="/about" element={<About />} />
+          <Route path="/checkout" element={<Checkout cart={cart} setCart={setCart} />} />
           <Route path="/items_grid" element={
 
               <div>
